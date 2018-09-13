@@ -13,3 +13,7 @@ Install the dependencies `npm install --save express body-parser`
 ## MongoDB
 
 The server needs to interact with mongoDB to perform the required operation. For this interaction we make use of mongoose. It is a npm package that provides mongoDB object mapping. Or in simpler words mongoose translates data in the database to a JavaScript object for use in our application. Install it: `npm install --save mongoose`.
+
+## RESTful APIs
+
+Coding RESTful APIs to create, read, update and delete documents from the database and also simultaneously test using POSTMAN.
