@@ -47,3 +47,17 @@ Therefore, we can now specify in the VideoCenter component template that there i
 ```
 
 Now, we can display the list of videos in the VideoList component template using the ngFor directive.
+
+Right now we have an array of videos in the VideoCenter component. We send this array as an input to the VideoList component, and then it is being displyed inside VideoList template
+
+    VideoCenter -> input -> VideoList component -> Display in VideoList template.
+
+## Displaying Video Detail
+
+Now, when we click on a video, let's send an event as output from VideoList to VideoCenter and that event contains information about the clicked video. 
+
+    VideoList -> output -> VideoCenter -> capture this video in VideoCenter component
+
+After capture this video in VideoCenter component, we will send it as an input again but this time to the VideoDetail component where we will display the details.
+
+    VideoCenter -> input -> VideoDetail component -> Display in VideoDetail template.
