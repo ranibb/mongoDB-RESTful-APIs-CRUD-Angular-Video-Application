@@ -61,3 +61,11 @@ Now, when we click on a video, let's send an event as output from VideoList to V
 After capture this video in VideoCenter component, we will send it as an input again but this time to the VideoDetail component where we will display the details.
 
     VideoCenter -> input -> VideoDetail component -> Display in VideoDetail template.
+
+## Video Detail UI
+
+Improve the UI of the VideoDetail component and incorporate input fields for rendering the video details; title, url and description with Two-Way binding. 
+
+Also, initially render the title in a heading tag. If you click on the title, it becomes hidden and an input filed with Two-Way binding gets rendered instead.
+
+Once the title has been edited and you navigate away from the current video, the input filed should become hidden and the title heading turns back on. For that, we are going to listen to ngOnChanges lifecycle hook as well.
