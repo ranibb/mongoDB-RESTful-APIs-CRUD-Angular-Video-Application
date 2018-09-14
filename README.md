@@ -23,3 +23,27 @@ When we make a put request to localhost:3000/api/video/:id we are going to first
 * $set : The set of new or updated values for the video that was fetched using the id.
 * new : if this is true, the method returns the updated video that is the video with the new set of values. If this is false, it is going to return the original video, that is the video before the values were updated. So you can get both the original video and the updated video based on this parameter 
 * A function: that is going to have either an error or the updated video.
+
+## Displaying Video List
+
+We are going to display an array of hard coded videos. Just like how we had a video represented by a model in express, we are going to represent a video using a class in angular. So, let's use angular cli to generate a video class; `ng g cl Video`.
+
+We will be handling most of the functionality in the VideoCenter component. The VideoList component is responsible for just displaying the list of videos and then the VideoDetail component is responsible for just displaying a detailed view of that particular video. So, our array of hard-coded videos will be present in the VideoCenter component, and this array will be passed as an input to the VideoList component which will then display the list.
+
+```TypeScript
+@Component({
+    //..
+    inputs: ['videos']
+})
+export class VideoListComponent implements OnInit {
+    //..
+}
+```
+
+Therefore, we can now specify in the VideoCenter component template that there is an input to the VideoList Component using the property data binding on the VideoList Component selector.
+
+```HTML
+<app-video-list [videos]="videos"></app-video-list>
+```
+
+Now, we can display the list of videos in the VideoList component template using the ngFor directive.
