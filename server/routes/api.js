@@ -72,4 +72,15 @@ router.put('/video/:id', function(req, res){
     )
 })
 
+router.delete('/video/:id', function(req, res){
+    console.log("Deleting a video");
+    Video.findByIdAndRemove(req.params.id, function(err, deletedVideo){
+        if(err) {
+            res.send("Error deleteing video")
+        } else {
+            res.json(deletedVideo)
+        }        
+    })
+})
+
 module.exports = router;
