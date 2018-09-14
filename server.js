@@ -19,7 +19,7 @@ const app = express();
 /**
  * Specify the folder where all the angular code is placed.
  */
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist/VideoPlayerApp')));
 
 /**
  * use bodyParser Middleware to parse the text as URL.
@@ -36,9 +36,9 @@ app.use(bodyParser.json());
  */
 app.use('/api', api)
 
-app.get('/', function(req,res){
-    res.send('Hello from server');
-})
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist/VideoPlayerApp/index.html'));
+  });
 
 /**
  * Listen to requests on port 3000
