@@ -69,3 +69,22 @@ Improve the UI of the VideoDetail component and incorporate input fields for ren
 Also, initially render the title in a heading tag. If you click on the title, it becomes hidden and an input filed with Two-Way binding gets rendered instead.
 
 Once the title has been edited and you navigate away from the current video, the input filed should become hidden and the title heading turns back on. For that, we are going to listen to ngOnChanges lifecycle hook as well.
+
+## Playing a Video in Iframe
+
+For the iframe to work we need to convert the URL into a safe URL and then assign it to the iframe source. For that we are going to make use of a pipe that we can generate using angular cli; `ng g p safe`. Then, open the generated file safe.pipe.ts and implement a code as following:
+
+```TypeScript
+import { Pipe, PipeTransform } from '@angular/core';
+import {DomSanitizer} from "@angular/platform-browser";
+
+@Pipe({ name: 'safe' })
+export class SafePipe implements PipeTransform {
+  constructor(private sanitizer: DomSanitizer) {}
+  transform(url: any) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+} 
+```
+
+What this pipe does is it takes in a URL and then it returns a sfaer version of the same URL.

@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 /**
  * Include the built-in path module that is a better alternative 
@@ -15,6 +16,8 @@ const api = require('./server/routes/api');
 const port = 3000;
 
 const app = express();
+
+app.use(cors());
 
 /**
  * Specify the folder where all the angular code is placed.
