@@ -106,3 +106,7 @@ What this pipe does is it takes in a URL and then it returns a safer version of 
 ## Update Video in Database
 
 Remember, the VideoDetail is only responsible for displaying the details. So, the updateVideo method is going to raise an event that will get captured in the VideoCenter component. And in the VideoCenter component, we will call the service to update the database.
+
+## Delete Video in Database
+
+Again, the VideoDetail is only responsible for displaying the details. So, the deleteVideo method is going to raise an event that will get captured in the VideoCenter component. And in the VideoCenter component, we will call the service to delete the video in the database. Additionally, update the UI to delete the video from the Video list to give a better user experience.
