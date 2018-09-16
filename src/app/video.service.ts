@@ -19,6 +19,7 @@ export class VideoService {
 
   private _getUrl = "http://localhost:3000/api/videos"
   private _postUrl = "http://localhost:3000/api/video"
+  private _putUrl = "http://localhost:3000/api/video/"
 
   constructor(private _http: HttpClient) { }
 
@@ -29,6 +30,11 @@ export class VideoService {
 
   addVideo (video: Video): Observable<Video> {
     return this._http.post<Video>(this._postUrl, JSON.stringify(video), httpOptions)
+      .pipe(catchError(this.errorHandler))
+  }
+
+  updateVideo (video: Video): Observable<Video> {
+    return this._http.put<Video>(this._putUrl + video._id, JSON.stringify(video), httpOptions)
       .pipe(catchError(this.errorHandler))
   }
 

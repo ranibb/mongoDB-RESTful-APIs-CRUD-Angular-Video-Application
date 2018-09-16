@@ -102,3 +102,7 @@ What this pipe does is it takes in a URL and then it returns a safer version of 
 * In order to get back the data, we need to subscribe to that service. And when we subscribe to the service, we get the response of the new video that was inserted.
 
 * It is not enough when we just insert into the database, we also need to reflect that in the UI. So, in the videos array we are going to push this new video so that the UI gets updated. And then we are going to set the new video is equal to the selected video so that a detailed view of the newly inserted video is going to appear.
+
+## Update Video in Database
+
+Remember, the VideoDetail is only responsible for displaying the details. So, the updateVideo method is going to raise an event that will get captured in the VideoCenter component. And in the VideoCenter component, we will call the service to update the database.

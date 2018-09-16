@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-    <app-video-detail *ngIf="selectedVideo && hideNewVideo" [video]="selectedVideo"></app-video-detail>
+    <app-video-detail (updateVideoEvent)="onUpdateVideoEvent($event)" *ngIf="selectedVideo && hideNewVideo" [video]="selectedVideo"></app-video-detail>
   </div>
   <div class="col-sm-3">
     <button (click)="newVideo()" type="button" class="btn btn-success btn-block">+ New Video</button>
