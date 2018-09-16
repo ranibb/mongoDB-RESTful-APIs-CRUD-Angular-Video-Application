@@ -87,4 +87,18 @@ export class SafePipe implements PipeTransform {
 } 
 ```
 
-What this pipe does is it takes in a URL and then it returns a sfaer version of the same URL.
+What this pipe does is it takes in a URL and then it returns a safer version of the same URL.
+
+## Insert Video into Database
+
+* Add the form and UI elements in the VideoCenter component template for creating a video. Also note the attribute ngModel that we attached to each input field so that the values within the input fields are accessible using the form reference variable; #form.
+
+* Implement a method addVideo in the VideoService that will insert a new video into the database.
+
+* In the form we can get hold of the ngSubmit event and assign it a handler onSubmitAddVideo passing in the form values. Now anytime you click the save button, this particular ngSubmit event is raised. `for.vlaue` is going to contain the values of the three input fields.
+
+* Define the handler onSubmitAddVideo in the VideoCenter component which is going to receive the values of the three input fields as of type Video. In the implementation the handler we call the addVideo method passing in that particular Video.
+
+* In order to get back the data, we need to subscribe to that service. And when we subscribe to the service, we get the response of the new video that was inserted.
+
+* It is not enough when we just insert into the database, we also need to reflect that in the UI. So, in the videos array we are going to push this new video so that the UI gets updated. And then we are going to set the new video is equal to the selected video so that a detailed view of the newly inserted video is going to appear.

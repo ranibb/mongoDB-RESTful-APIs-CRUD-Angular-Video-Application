@@ -27,4 +27,12 @@ export class VideoCenterComponent implements OnInit {
     console.log(this.selectedVideo);
   }
 
+  onSubmitAddVideo(video: Video) {
+    this._videoService.addVideo(video)
+      .subscribe(resNewVideo => {
+        this.videos.push(resNewVideo);
+        this.selectedVideo = resNewVideo;
+      });
+  }
+
 }
