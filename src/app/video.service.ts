@@ -26,22 +26,22 @@ export class VideoService {
 
   getVideos(): Observable<Video[]>{
     return this._http.get<Video[]>(this._getUrl)
-      .pipe(tap(data => JSON.stringify(data)) , catchError(this.errorHandler))
+      .pipe(tap(data => JSON.stringify(data)), catchError(this.errorHandler))
   }
 
   addVideo (video: Video): Observable<Video> {
     return this._http.post<Video>(this._postUrl, JSON.stringify(video), httpOptions)
-      .pipe(catchError(this.errorHandler))
+      .pipe(tap(data => JSON.stringify(data)), catchError(this.errorHandler))
   }
 
   updateVideo (video: Video): Observable<Video> {
     return this._http.put<Video>(this._putUrl + video._id, JSON.stringify(video), httpOptions)
-      .pipe(catchError(this.errorHandler))
+      .pipe(tap(data => JSON.stringify(data)), catchError(this.errorHandler))
   }
 
   deleteVideo (video: Video): Observable<Video> {
     return this._http.delete<Video>(this._deleteUrl + video._id)
-      .pipe(catchError(this.errorHandler))
+      .pipe(tap(data => JSON.stringify(data)), catchError(this.errorHandler))
   }
 
   errorHandler(error: HttpErrorResponse){
